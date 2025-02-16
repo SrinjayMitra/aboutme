@@ -1,101 +1,129 @@
-import Image from "next/image";
+'use client'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-purple-900">
+      {/* Header */}
+      <motion.header 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className="p-6 text-center"
+      >
+        <h1 className="text-4xl font-bold text-purple-300">Srinjay Mitra</h1>
+        <p className="text-xl text-purple-400">Software Developer</p>
+      </motion.header>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      {/* Hero Section */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="container mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-16"
+      >
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          className="relative"
+        >
+          <div className="w-72 h-72 relative rounded-2xl overflow-hidden border-4 border-purple-500 shadow-2xl">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/photo.jpeg"
+              alt="Profile picture"
+              fill
+              className="object-cover"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+          <div className="absolute -bottom-4 -right-4 w-full h-full border-4 border-purple-400 rounded-2xl -z-10" />
+        </motion.div>
+        <div className="text-center md:text-left max-w-xl">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
           >
-            Read our docs
-          </a>
+            <h2 className="text-3xl font-bold text-purple-300 mb-4">Hello! 👋</h2>
+            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-xl border border-purple-500/20">
+              <p className="text-lg text-purple-200 leading-relaxed">
+                I'm a passionate developer based in Burnaby, BC. I love creating beautiful 
+                and functional web experiences that bring joy to users. When I'm not coding, 
+                you can find me exploring the beautiful trails of British Columbia! ✨
+              </p>
+            </div>
+            <motion.div 
+              className="mt-8 flex gap-4 justify-center md:justify-start"
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              <a 
+                href="mailto:srinjaymitra918@gmail.com" 
+                className="px-6 py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg transition-colors shadow-lg"
+              >
+                Get in Touch
+              </a>
+              <a 
+                href="https://portfolio.srinjaymitra.site/" 
+                className="px-6 py-3 bg-gray-800 hover:bg-gray-700 text-purple-300 rounded-lg transition-colors shadow-lg border border-purple-500/20"
+              >
+                View Projects
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </motion.section>
+
+      {/* Education Section */}
+      <motion.section 
+        initial={{ x: 100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        className="container mx-auto px-6 py-12"
+      >
+        <h2 className="text-3xl font-bold text-purple-300 text-center mb-8">Education</h2>
+        <motion.div 
+          whileHover={{ scale: 1.02 }}
+          className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-2xl mx-auto"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <h3 className="text-xl font-bold text-purple-300">SFU</h3>
+          <p className="text-purple-400">Bachelor of Computer Science</p>
+          <p className="text-purple-500">2018 - 2022</p>
+        </motion.div>
+      </motion.section>
+
+      {/* Contact Section */}
+      <section className="container mx-auto px-6 py-12 text-center">
+        <h2 className="text-3xl font-bold text-purple-300 mb-8">Let's Connect!</h2>
+        <div className="flex justify-center gap-6">
+          <motion.a
+            whileHover={{ scale: 1.2, rotate: 10 }}
+            href="mailto:srinjaymitra918@gmail.com"
+            className="text-purple-300 text-3xl"
+          >
+            <FaEnvelope />
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.2, rotate: -10 }}
+            href="https://github.com/SrinjayMitra"
+            className="text-purple-300 text-3xl"
+          >
+            <FaGithub />
+          </motion.a>
+          <motion.a
+            whileHover={{ scale: 1.2, rotate: 10 }}
+            href="https://www.linkedin.com/in/srinjay-mitra/"
+            className="text-purple-300 text-3xl"
+          >
+            <FaLinkedin />
+          </motion.a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-6 mt-12">
+        <div className="container mx-auto px-6 text-center">
+          <p>© 2024 Srinjay Mitra. All rights reserved. ✨</p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
